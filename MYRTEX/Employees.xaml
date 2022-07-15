@@ -1,0 +1,34 @@
+﻿<Page x:Class="MYRTEX.Employees"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MYRTEX"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Employees" IsVisibleChanged="Page_IsVisibleChanged">
+
+    <Grid Background="Azure">
+
+        <DataGrid  HorizontalAlignment="Center" Height="224" Margin="0,126,0,0" VerticalAlignment="Top" Width="780" x:Name="DGridEmployees" IsReadOnly="True" AutoGenerateColumns="False" SelectionChanged="DGridEmployees_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Отдел" Width="150" Binding="{Binding Department}"/>
+                <DataGridTextColumn Header="Ф.И.О" Width="140" Binding="{Binding FullName}"/>
+                <DataGridTextColumn Header="Дата рождения" Width="120" Binding="{Binding Birthdate}"/>
+                <DataGridTextColumn Header="Возраст" Width="70" Binding="{Binding Age}"/>
+                <DataGridTextColumn Header="Дата устройства на работу" Width="160" Binding="{Binding DateOfEmployment}"/>
+                <DataGridTextColumn Header="Заработная плата" Width="110" Binding="{Binding Salary}"/>
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Редактировать" Name="BtnEdit" Click="BtnEdit_Click" Foreground="Black" Background="#FFDCFFFF" BorderBrush="#FF777777"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button  Name="Btn1" Content="Главное Меню" Margin="10,46,618,344" Click="Btn1_Click" Foreground="Black" Background="#FFDCFFFF" BorderBrush="#FF777777" RenderTransformOrigin="0,0"/>
+        <Button  x:Name="Btn_Create" Content="Создание" Margin="22,367,606,23" Click="Btn_Create_Click" Foreground="Black" Background="#FFDCFFFF" BorderBrush="#FF777777" RenderTransformOrigin="0,1"/>
+        <Button  x:Name="Btn_Delete" Content="Удаление" Margin="601,367,27,23" Click="Btn_Delete_Click" Foreground="Black" Background="#FFDCFFFF" BorderBrush="#FF777777" RenderTransformOrigin="1,1"/>
+    </Grid>
+</Page>
